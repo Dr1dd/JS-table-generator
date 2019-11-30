@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="lt">
+	<head>
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+	    <meta name="viewport" content="height=device-height, initial-scale=1">
+	    <link rel="stylesheet" href="style.css">
+	    <title>Table generator</title>
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	    <script language="JavaScript" type="text/javascript" src="tablegen.js" > </script>
+	</head>
+<body>
+	<div class = "main">
+		<div class = "top">
+			Table Generator
+		</div>
+		<div class = "tableSettings">
+			<div class="settingsContainer">
+				<div>
+					<input type="text" placeholder="Lentelės pavadinimas:" class="tableName" id="tableTitle">
+				</div>
+				<div>
+					<span> Eilučių skaičius: </span>
+					<span class = "rowValue"> </span>
+					<input type="range" min="1" max="15" value="5" class="slider" id="rowCount">
+				</div>
+				<div>
+					<span> Stulpelių skaičius: </span>
+					<span class = "rowValue"> </span>
+					<input type="range" min="1" max="15" value="5" class="slider" id="columnCount">
+				</div>
+				<span> Stulpelių pavadinimai: </span>
+				<div class = "columnBlock" id = "columnTitles">
+
+				</div>
+				<span> Lentelės dydis: </span>
+				<div class = "sizeContainer">
+					<div class = "tooltip">
+						<div class ="sizediv" contenteditable ="true" id ="height">
+							0
+						</div>
+						 <span class="tooltiptext-left tooltip-left">Aukštis (px)</span>
+					</div>
+					<div class = "tooltip">
+						 <span class="tooltiptext-right tooltip-right">Plotis (px)</span>
+						<div class ="sizediv" contenteditable ="true" id ="width">
+							0
+						</div>
+					</div>
+				</div>
+				<button type="button" class="collapsible">Papildomi nustatymai</button>
+				<div class="content">
+				  <p>Lorem ipsum...</p>
+				</div>
+				<div class = "confirmbtn" >
+					Generuoti
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
