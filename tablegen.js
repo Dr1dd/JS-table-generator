@@ -52,8 +52,11 @@ $(function() {
 		var columns = document.getElementById('columnCount').value;
 		window.open("generated.html");
 	});
-	$(".collapsible").click(function(){
-		 $('.content').slideToggle('slow');
+	$("#additionalSettings").click(function(){
+		 $('#additionalContent').slideToggle('slow');
+	});
+	$("#fontSettings").click(function(){
+		 $('#fontContent').slideToggle('slow');
 	});
 });
 console.log(window.location.pathname);
@@ -116,4 +119,11 @@ function generateTable(){
 			document.getElementById('containTable').appendChild(tbl);
 		}
 		sessionStorage.clear();
+}
+function openCloseDrawer(){
+	if(document.getElementById("myDrawer").style.width != 0 && document.getElementById("myDrawer").style.width != "0px" ) document.getElementById("myDrawer").style.width = 0;
+	else {
+		document.getElementById("myDrawer").style.width = "28vw";
+		document.getElementById("closeham").style.visibility = "visible"; 
+	}
 }

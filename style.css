@@ -157,6 +157,13 @@ span{
     outline: none;
     font-size: 15px;
 }
+.collapsible-settings{
+    padding: 15px;
+    border-radius: 0px;
+     margin-top: 0;
+    font-size: 18px;
+}
+
 .collapsible::after{
 	content: '\002B';
     color: #555555;
@@ -174,6 +181,9 @@ span{
   margin: -9px 0px;
   margin-bottom: 10px;
   background-color: #f1f1f1;
+}
+.content-settings{
+   margin-bottom: 0px;
 }
 
 .confirmbtn{
@@ -214,4 +224,44 @@ td{
     border: 3px solid #d3d3d3;;
     font-size: 14px;
     color: #5c595b;
+}
+.sideDrawer{
+	width:0;
+	position: fixed;
+    height: 100%;
+    right: 0%;
+    top: 0%;
+    background-color: #747173;
+    transition: 0.5s;
+}
+.hamburger{
+    position: absolute;
+    height: 6%;
+    left: 94%;
+    top: 4%;
+    width: 4%;
+    cursor: pointer;
+}
+.ham{
+  width: 35px;
+  height: 5px;
+  background-color: black;
+  margin: 6px 0;
+  cursor: pointer;
+}
+.closeHamburger{
+	visibility: hidden;
+	font-size: 30px;
+    text-align: left;
+    padding: 6px;
+    margin-bottom: 3vh;
+    color: #80c484;
+    left: 74%;
+    font-family: "Arial Black", Gadget, sans-serif;
+    transition: 0.5s;
+    cursor: pointer;
+    width: 3vw;
+}
+.drawerSettingsContainer{
+	display: grid;
 }

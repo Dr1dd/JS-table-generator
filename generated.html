@@ -12,6 +12,27 @@
 	<div class = "main">
 		<div class = "top">
 			Table Generator
+			<div class = "hamburger" onclick ="openCloseDrawer()">
+				<div class ="ham"></div>
+				<div class ="ham"></div>
+				<div class ="ham"></div>
+			</div>
+			<div class = "sideDrawer" id ="myDrawer">
+				<div class ="closeHamburger" id="closeham" onclick="openCloseDrawer()">
+					X
+				</div>
+				<div class="drawerSettingsContainer">
+					<button type="button" class="collapsible collapsible-settings" id="fontSettings">Šrifto nustatymai</button>
+					<div class="content content-settings" id="fontContent">
+					  <p>Lorem ipsum...</p>
+					</div>
+					<button type="button" class="collapsible collapsible-settings" id="fontSettings">Šrifto nustatymai</button>
+					<div class="content content-settings" id="fontContent">
+					  <p>Lorem ipsum...</p>
+					</div>
+				</div>
+
+			</div>
 		</div>
 		<div class = "generatedTable" id ="genContainer">
 			<div id ="containTable">
