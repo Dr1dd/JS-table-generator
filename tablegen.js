@@ -48,6 +48,8 @@ $(function() {
 		sessionStorage.setItem("columnTitles", JSON.stringify(columnTitles));
 		sessionStorage.setItem("height", document.getElementById('height').innerHTML);
 		sessionStorage.setItem("width", document.getElementById('width').innerHTML);
+		var width = document.getElementById('width').innerHTML;
+		var columns = document.getElementById('columnCount').value;
 		window.open("generated.html");
 	});
 	$(".collapsible").click(function(){
@@ -69,18 +71,34 @@ function generateTable(){
 		var tableWidth = sessionStorage.getItem("width");
 
 		var tbl = document.createElement("table");
-		tbl.setAttribute("style", "height:"+tableHeight+"px; width:"+tableWidth+"px");
+		tbl.setAttribute("style", "min-height:"+tableHeight+"px; min-width:"+tableWidth+"px");
 		var caption = document.createElement("caption");
 		caption.appendChild(document.createTextNode(title));
  		var tblBody = document.createElement("tbody");
-	  	for (var j = 1; j <= rowCount; j++) {
+	  	for (var j = 0; j <= rowCount; j++) {
 		   	 var row = document.createElement("tr");
 
-		    for (var i = 1; i <= columnCount; i++) {
+		    for (var i = 0; i <= columnCount; i++) {
 		      var cell = document.createElement("td");
+		      cell.setAttribute("style", "min-width:"+(tableWidth/(columnCount+1))+"px; max-width:"+ ((tableWidth/(columnCount+1))+50)+"px");
 		      cell.setAttribute("contenteditable", "true");
-		      if(j == 1)  var cellText = document.createTextNode(clmnTitles[i-1]);
-		      else var cellText = document.createTextNode("cell is row " + j + ", column " + i);
+		      if(i == 0){
+		      	if(j == 0){
+		      		var cellText = document.createTextNode("");
+		      		cell.setAttribute("style", "font-size: 20px; background-color: #80c484");
+		      	} 
+		      	else {
+		      		var cellText = document.createTextNode(j+".");
+		      		cell.setAttribute("style", "font-size: 20px");
+		      	}
+		  	  }
+		      else{
+		        if(j == 0)  {
+		        	var cellText = document.createTextNode(clmnTitles[i-1]);
+		        	cell.setAttribute("style", "font-size: 20px; background-color: #80c484");
+		        }
+			    else var cellText = document.createTextNode("");
+		      }
 
 		      cell.appendChild(cellText);
 		      row.appendChild(cell);
@@ -95,7 +113,7 @@ function generateTable(){
 
 		window.onload = init;
 		function init(){
-		document.getElementById('genContainer').appendChild(tbl);
+			document.getElementById('containTable').appendChild(tbl);
 		}
 		sessionStorage.clear();
 }
