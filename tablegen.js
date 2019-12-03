@@ -18,6 +18,7 @@ $(function() {
 			   }
             }
           });
+
         $('.rowValue').each(function(){
             var value = $(this).next().attr('value');
             $(this).html(value);
@@ -52,12 +53,38 @@ $(function() {
 		var columns = document.getElementById('columnCount').value;
 		window.open("generated.html");
 	});
+
 	$("#additionalSettings").click(function(){
 		 $('#additionalContent').slideToggle('slow');
+	});
+
+	$(".colors").click(function(){
+		var getColor = $(this).css("backgroundColor");
+		var getTable = document.getElementById("containTable").childNodes;
+		var firstRow = getTable[1].rows[0];
+		for(var i = 0; i < firstRow.cells.length; i++){
+			firstRow.cells[i].setAttribute("style", "background-color: "+getColor);
+		}
+	});
+	$("#themeSettings").click(function(){
+		 $('#themeContent').slideToggle('slow');
 	});
 	$("#fontSettings").click(function(){
 		 $('#fontContent').slideToggle('slow');
 	});
+	$("#fontColorSettings").click(function(){
+		 $('#fontColorContent').slideToggle('slow');
+	});
+	$("#font-family").on('change', function(){
+		var select =  document.getElementById("font-family");
+		var index  = select.selectedIndex;
+		var family = select.options[index].style.fontFamily;
+		console.log(family);
+		var getTable = document.getElementById("containTable").childNodes[1];
+		getTable.setAttribute("style", "font-family: "+family);
+		
+	});
+	
 });
 console.log(window.location.pathname);
 	if (window.location.pathname == '/F:/Desktop/5uzd/generated.html'){
