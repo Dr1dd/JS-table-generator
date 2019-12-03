@@ -232,7 +232,17 @@ function generateTable(){
 function openCloseDrawer(){
 	if(document.getElementById("myDrawer").style.width != 0 && document.getElementById("myDrawer").style.width != "0px" ) document.getElementById("myDrawer").style.width = 0;
 	else {
+		if(window.innerWidth <700){
+			document.getElementById("myDrawer").style.width = "39vw";
+			if(window.innerWidth <500){
+				document.getElementById("myDrawer").style.width = "52vw";
+				if(window.innerWidth <300) document.getElementById("myDrawer").style.width = "74vw";
+			}
+		}
+		else{
 		document.getElementById("myDrawer").style.width = "28vw";
 		document.getElementById("closeham").style.visibility = "visible"; 
+		}
 	}
+	
 }
